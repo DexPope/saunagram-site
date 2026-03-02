@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saunagram - Premium Saunas & Wellness Products</title>
+    <meta name="description" content="Shop premium saunas, cold plunge tubs, infrared therapy, and wellness accessories. Free shipping on all orders. 5,000+ happy customers.">
+    <meta property="og:title" content="Saunagram - Premium Saunas & Wellness">
+    <meta property="og:description" content="Shop the hottest deals on premium saunas and wellness products. Free shipping, 4.9⭐ rating.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saunagram.shop">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23FF6B6B'/%3E%3Cpath d='M30 60c5-10 15-10 20 0 5-10 15-10 20 0' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAFAFA;
+            color: #262626;
+            line-height: 1.4;
+        }
+        
+        .container {
+            max-width: 935px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #DBDBDB;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 8px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #F56040, #FFAD46, #FFDD59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 268px;
+            margin: 0 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 8px 16px;
+            border: 1px solid #DBDBDB;
+            border-radius: 8px;
+            background: #EFEFEF;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .search-input:focus {
+            background: white;
+            border-color: #A8A8A8;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            background: white;
+            padding: 30px 0;
+            border-bottom: 1px solid #DBDBDB;
+        }
+        
+        .profile-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #F56040, #FFAD46, #FFDD59);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .profile-pic svg {
+            width: 80px;
+            height: 80px;
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-name {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .profile-bio {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .profile-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-number {
+            font-weight: 600;
+        }
+        
+        .shop-button {
+            background: #0095F6;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .shop-button:hover {
+            background: #1877F2;
+        }
+        
+        /* Stories Bar */
+        .stories-section {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #DBDBDB;
+            overflow-x: auto;
+        }
+        
+        .stories-container {
+            display: flex;
+            gap: 20px;
+            padding: 0 20px;
+            min-width: max-content;
+        }
+        
+        .story-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            min-width: 80px;
+        }
+        
+        .story-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .story-circle {
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #F56040, #FFAD46, #FFDD59);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            position: relative;
+            padding: 3px;
+        }
+        
+        .story-circle.active::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #F56040, #FFAD46, #FFDD59);
+            z-index: -1;
+        }
+        
+        .story-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .story-label {
+            font-size: 12px;
+            text-align: center;
+            max-width: 66px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        /* View Toggle */
+        .view-controls {
+            background: white;
+            padding: 10px 0;
+            border-bottom: 1px solid #DBDBDB;
+            text-align: center;
+        }
+        
+        .view-toggle {
+            display: inline-flex;
+            border: 1px solid #DBDBDB;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .view-btn {
+            padding: 8px 16px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        
+        .view-btn.active {
+            background: #262626;
+            color: white;
+        }
+        
+        /* Product Feed */
+        .products-section {
+            background: white;
+            min-height: calc(100vh - 400px);
+        }
+        
+        .products-grid {
+            display: grid;
+            gap: 1px;
+            background: #DBDBDB;
+        }
+        
+        .products-grid.grid-view {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .products-grid.list-view {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            background: transparent;
+            padding: 20px;
+        }
+        
+        .product-item {
+            background: white;
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+        
+        .list-view .product-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .list-view .product-content {
+            padding: 16px;
+        }
+        
+        .list-view .product-brand {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .list-view .product-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .list-view .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .list-view .product-price .original {
+            text-decoration: line-through;
+            color: #8E8E8E;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        
+        .list-view .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .list-view .product-icons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .product-icon {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .product-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        .product-icon.liked {
+            color: #ED4956;
+        }
+        
+        .shop-now-btn {
+            background: #0095F6;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .list-view .product-description {
+            font-size: 14px;
+            color: #8E8E8E;
+            line-height: 1.4;
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #DBDBDB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            color: #8E8E8E;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-product-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .modal-images {
+            position: relative;
+        }
+        
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .modal-details h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .modal-brand {
+            color: #8E8E8E;
+            margin-bottom: 16px;
+        }
+        
+        .modal-price {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .modal-price .original {
+            text-decoration: line-through;
+            color: #8E8E8E;
+            font-size: 20px;
+            margin-left: 8px;
+        }
+        
+        .modal-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .modal-features {
+            margin-bottom: 30px;
+        }
+        
+        .modal-features h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .modal-features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .modal-features li {
+            padding: 4px 0;
+            color: #666;
+        }
+        
+        .modal-features li::before {
+            content: '✓';
+            color: #00C851;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .buy-now-btn {
+            flex: 1;
+            background: #0095F6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .buy-now-btn:hover {
+            background: #1877F2;
+        }
+        
+        .wishlist-btn {
+            padding: 12px;
+            background: white;
+            border: 1px solid #DBDBDB;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.2s;
+        }
+        
+        .wishlist-btn.liked {
+            color: #ED4956;
+            border-color: #ED4956;
+        }
+        
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #DBDBDB;
+            padding: 8px 0;
+            display: none;
+            z-index: 100;
+        }
+        
+        .bottom-nav-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px;
+            cursor: pointer;
+            transition: color 0.2s;
+            color: #8E8E8E;
+            font-size: 12px;
+        }
+        
+        .bottom-nav-item.active {
+            color: #262626;
+        }
+        
+        .bottom-nav-item .icon {
+            font-size: 24px;
+            margin-bottom: 2px;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .profile-content {
+                gap: 20px;
+            }
+            
+            .profile-pic {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .profile-pic svg {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .profile-name {
+                font-size: 20px;
+            }
+            
+            .profile-stats {
+                gap: 20px;
+                font-size: 14px;
+            }
+            
+            .products-grid.grid-view {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-product-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stories-container {
+                padding: 0 16px;
+            }
+            
+            .bottom-nav {
+                display: block;
+            }
+            
+            .products-section {
+                margin-bottom: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-content {
+                gap: 12px;
+            }
+            
+            .search-bar {
+                margin: 0 12px;
+                max-width: none;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+        }
+        
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stories-section::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .stories-section {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #8E8E8E;
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 8px;
+            color: #262626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Saunagram</div>
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                </div>
+                <div class="header-actions">
+                    <!-- Additional header buttons could go here -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-content">
+                <div class="profile-pic">
+                    <svg viewBox="0 0 100 100" fill="white">
+                        <circle cx="50" cy="30" r="12"/>
+                        <ellipse cx="50" cy="70" rx="25" ry="18"/>
+                        <path d="M25 55 Q50 45 75 55" stroke="white" stroke-width="2" fill="none"/>
+                        <path d="M30 62 Q50 52 70 62" stroke="white" stroke-width="1.5" fill="none"/>
+                    </svg>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">Saunagram</h1>
+                    <p class="profile-bio">Premium Saunas & Wellness | Free Shipping | Shop the hottest deals 🔥🧖‍♂️</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">150+</span>
+                            <span>Products</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5,000+</span>
+                            <span>Happy Customers</span>
+                        </div>
+                        <div class="stat">
+                            <span>⭐ 4.9</span>
+                            <span>Rating</span>
+                        </div>
+                    </div>
+                    <button class="shop-button" onclick="scrollToProducts()">Shop Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Bar (Categories) -->
+    <section class="stories-section">
+        <div class="stories-container" id="categoriesContainer">
+            <!-- Categories will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- View Controls -->
+    <section class="view-controls">
+        <div class="view-toggle">
+            <button class="view-btn active" id="gridViewBtn" onclick="switchView('grid')">Grid</button>
+            <button class="view-btn" id="listViewBtn" onclick="switchView('list')">Feed</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid grid-view" id="productsGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <h3>No products found</h3>
+                <p>Try adjusting your search or category filter</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Product Details</div>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <div class="bottom-nav-content">
+            <div class="bottom-nav-item active" onclick="setActiveCategory('all')">
+                <div class="icon">🏠</div>
+                <div>Home</div>
+            </div>
+            <div class="bottom-nav-item" onclick="focusSearch()">
+                <div class="icon">🔍</div>
+                <div>Search</div>
+            </div>
+            <div class="bottom-nav-item" onclick="showCategories()">
+                <div class="icon">📋</div>
+                <div>Categories</div>
+            </div>
+            <div class="bottom-nav-item" onclick="showWishlist()">
+                <div class="icon">❤️</div>
+                <div>Wishlist</div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Outdoor Barrel Sauna 4-Person",
+                brand: "Nordic Wellness",
+                price: 4299,
+                originalPrice: 5499,
+                category: "saunas",
+                image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&h=600&fit=crop",
+                description: "Authentic Finnish barrel sauna crafted from premium cedar wood. Perfect for outdoor relaxation and year-round use.",
+                features: [
+                    "Seats up to 4 people comfortably",
+                    "Premium Canadian Red Cedar construction",
+                    "6kW electric heater included",
+                    "Tempered glass door",
+                    "Pre-assembled sections for easy setup",
+                    "Weather-resistant exterior finish"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 2,
+                name: "Indoor Infrared Sauna 2-Person",
+                brand: "TheraSauna",
+                price: 2199,
+                originalPrice: null,
+                category: "infrared",
+                image: "https://images.unsplash.com/photo-1596178060810-0d90084a42c0?w=600&h=600&fit=crop",
+                description: "Compact infrared sauna perfect for home use. Advanced carbon fiber heating technology for deep tissue therapy.",
+                features: [
+                    "Low EMF carbon fiber heaters",
+                    "Chromotherapy lighting system",
+                    "Bluetooth audio system",
+                    "Easy assembly design",
+                    "Energy efficient operation",
+                    "Lifetime warranty on heating elements"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 3,
+                name: "Ice Bath Cold Plunge Tub",
+                brand: "Arctic Recovery",
+                price: 1499,
+                originalPrice: null,
+                category: "cold-plunge",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop",
+                description: "Professional-grade cold plunge tub for recovery and wellness. Insulated design maintains temperature longer.",
+                features: [
+                    "Double-wall insulation",
+                    "Drain plug for easy emptying",
+                    "Non-slip bottom surface",
+                    "Fits up to 6'2\" comfortably",
+                    "UV-resistant materials",
+                    "Quick setup in 10 minutes"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 4,
+                name: "Traditional Finnish Sauna Kit",
+                brand: "Finnleo",
+                price: 6799,
+                originalPrice: null,
+                category: "saunas",
+                image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=600&fit=crop",
+                description: "Authentic Finnish sauna experience with traditional design. Premium materials and craftsmanship.",
+                features: [
+                    "Authentic Finnish design",
+                    "Grade A Nordic White Spruce",
+                    "Traditional rock heater",
+                    "Bench seating for 6 people",
+                    "Complete installation kit",
+                    "5-year manufacturer warranty"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 5,
+                name: "Portable Steam Sauna Tent",
+                brand: "Home Spa",
+                price: 199,
+                originalPrice: null,
+                category: "saunas",
+                image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=600&fit=crop",
+                description: "Affordable portable sauna tent for home use. Easy setup and storage with powerful steam generator.",
+                features: [
+                    "Sets up in 5 minutes",
+                    "Powerful 800W steam generator",
+                    "Foldable chair included",
+                    "Remote control operation",
+                    "Herbal box for aromatherapy",
+                    "Compact storage design"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 6,
+                name: "Portable Cold Plunge Barrel",
+                brand: "Ice Recovery",
+                price: 899,
+                originalPrice: null,
+                category: "cold-plunge",
+                image: "https://images.unsplash.com/photo-1607274017697-dac2e3ac8a8a?w=600&h=600&fit=crop",
+                description: "Stylish barrel design cold plunge for indoor or outdoor use. Easy to move and maintain.",
+                features: [
+                    "Insulated barrel design",
+                    "Rust-resistant hardware",
+                    "Easy drain system",
+                    "Comfortable seating area",
+                    "Weather-resistant finish",
+                    "1-year warranty"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 7,
+                name: "Cold Plunge Chiller Unit",
+                brand: "Arctic Systems",
+                price: 2999,
+                originalPrice: null,
+                category: "cold-plunge",
+                image: "https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=600&h=600&fit=crop",
+                description: "Professional chiller unit for maintaining optimal cold plunge temperatures year-round.",
+                features: [
+                    "Maintains 37-55°F consistently",
+                    "Energy efficient compressor",
+                    "Digital temperature display",
+                    "Built-in filtration system",
+                    "Quiet operation",
+                    "Commercial grade components"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 8,
+                name: "Full Spectrum Infrared Sauna Panel",
+                brand: "RedLight Pro",
+                price: 599,
+                originalPrice: null,
+                category: "infrared",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=600&fit=crop",
+                description: "Professional infrared therapy panel with full spectrum LED technology for targeted treatment.",
+                features: [
+                    "Near, mid, and far infrared",
+                    "360 high-power LEDs",
+                    "Built-in timer function",
+                    "Adjustable intensity levels",
+                    "Wall or stand mounting",
+                    "3-year warranty"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 9,
+                name: "Infrared Sauna Blanket",
+                brand: "Wellness Wrap",
+                price: 399,
+                originalPrice: null,
+                category: "infrared",
+                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&h=600&fit=crop",
+                description: "Portable infrared sauna blanket for at-home therapy sessions. Easy to use and store.",
+                features: [
+                    "Far infrared heat therapy",
+                    "Waterproof interior lining",
+                    "Digital controller included",
+                    "Auto shut-off safety feature",
+                    "Travel carrying bag",
+                    "One-size-fits-all design"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 10,
+                name: "Red Light Therapy Panel",
+                brand: "TheraLight",
+                price: 299,
+                originalPrice: null,
+                category: "infrared",
+                image: "https://images.unsplash.com/photo-1559757175-0eb30cd9a4ef?w=600&h=600&fit=crop",
+                description: "Clinical-grade red light therapy panel for skin health and muscle recovery.",
+                features: [
+                    "660nm red + 850nm near-infrared",
+                    "120 high-intensity LEDs",
+                    "No harmful UV rays",
+                    "20-minute treatment sessions",
+                    "Lightweight and portable",
+                    "FDA registered facility"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 11,
+                name: "Sauna Thermometer & Hygrometer",
+                brand: "Sauna Essentials",
+                price: 39,
+                originalPrice: null,
+                category: "accessories",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop",
+                description: "Precision instruments for monitoring temperature and humidity in your sauna.",
+                features: [
+                    "Heat-resistant construction",
+                    "Easy-to-read dial display",
+                    "Mounting hardware included",
+                    "Temperature range: 0-220°F",
+                    "Humidity range: 0-100%",
+                    "Made in Germany"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 12,
+                name: "Essential Oil Sauna Kit",
+                brand: "Aromatherapy Plus",
+                price: 49,
+                originalPrice: null,
+                category: "accessories",
+                image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&h=600&fit=crop",
+                description: "Premium essential oil collection designed specifically for sauna aromatherapy.",
+                features: [
+                    "6 sauna-safe essential oils",
+                    "Eucalyptus and pine scents",
+                    "Heat-resistant glass bottles",
+                    "Wooden oil dispenser included",
+                    "Usage instructions provided",
+                    "100% natural ingredients"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 13,
+                name: "Premium Sauna Stones 40lbs",
+                brand: "Nordic Rock",
+                price: 79,
+                originalPrice: null,
+                category: "accessories",
+                image: "https://images.unsplash.com/photo-1597149736238-2d3a5fa30d8a?w=600&h=600&fit=crop",
+                description: "Authentic Finnish sauna stones for optimal heat retention and steam production.",
+                features: [
+                    "100% natural Finnish diabase",
+                    "Excellent heat retention",
+                    "Clean steam production",
+                    "Rounded edges for safety",
+                    "Pre-washed and sorted",
+                    "40-pound bag"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 14,
+                name: "Cedar Sauna Bucket & Ladle Set",
+                brand: "Woodcraft Wellness",
+                price: 69,
+                originalPrice: null,
+                category: "accessories",
+                image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=600&h=600&fit=crop",
+                description: "Traditional cedar bucket and ladle set for the authentic sauna experience.",
+                features: [
+                    "Premium Canadian cedar",
+                    "5-liter capacity bucket",
+                    "Ergonomic ladle design",
+                    "Natural wood finish",
+                    "Stainless steel bands",
+                    "Traditional Finnish style"
+                ],
+                affiliateUrl: "#"
+            },
+            {
+                id: 15,
+                name: "Sauna Hat (Wool)",
+                brand: "Traditional Craft",
+                price: 24,
+                originalPrice: null,
+                category: "accessories",
+                image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=600&fit=crop",
+                description: "Traditional wool sauna hat for head protection during high-temperature sessions.",
+                features: [
+                    "100% natural sheep wool",
+                    "Heat insulation properties",
+                    "Comfortable felt construction",
+                    "Traditional Russian style",
+                    "One size fits all",
+                    "Hand washable"
+                ],
+                affiliateUrl: "#"
+            }
+        ];
+
+        // Categories
+        const categories = [
+            { id: 'all', name: 'All', icon: '🏠' },
+            { id: 'saunas', name: 'Saunas', icon: '🔥' },
+            { id: 'cold-plunge', name: 'Cold Plunge', icon: '❄️' },
+            { id: 'infrared', name: 'Infrared', icon: '🌡️' },
+            { id: 'spa', name: 'Spa & Massage', icon: '💆' },
+            { id: 'accessories', name: 'Accessories', icon: '🧴' },
+            { id: 'recovery', name: 'Recovery', icon: '🏋️' },
+            { id: 'best-sellers', name: 'Best Sellers', icon: '⭐' },
+            { id: 'sale', name: 'Sale', icon: '🏷️' }
+        ];
+
+        // State
+        let currentCategory = 'all';
+        let currentView = 'grid';
+        let wishlist = JSON.parse(localStorage.getItem('saunagram-wishlist') || '[]');
+        let filteredProducts = [...products];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCategories();
+            renderProducts();
+            setupSearch();
+            updateBottomNav();
+        });
+
+        // Categories
+        function renderCategories() {
+            const container = document.getElementById('categoriesContainer');
+            container.innerHTML = categories.map(category => `
+                <div class="story-item" onclick="setActiveCategory('${category.id}')">
+                    <div class="story-circle ${currentCategory === category.id ? 'active' : ''}">
+                        <div class="story-inner">
+                            ${category.icon}
+                        </div>
+                    </div>
+                    <div class="story-label">${category.name}</div>
+                </div>
+            `).join('');
+        }
+
+        function setActiveCategory(categoryId) {
+            currentCategory = categoryId;
+            filterProducts();
+            renderCategories();
+            updateBottomNav();
+        }
+
+        // Products
+        function filterProducts() {
+            let filtered = [...products];
+            
+            // Category filter
+            if (currentCategory === 'best-sellers') {
+                filtered = filtered.filter(p => p.price >= 1000);
+            } else if (currentCategory === 'sale') {
+                filtered = filtered.filter(p => p.originalPrice);
+            } else if (currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === currentCategory);
+            }
+            
+            // Search filter
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (searchTerm) {
+                filtered = filtered.filter(p => 
+                    p.name.toLowerCase().includes(searchTerm) ||
+                    p.brand.toLowerCase().includes(searchTerm) ||
+                    p.description.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            filteredProducts = filtered;
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (filteredProducts.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+            
+            if (currentView === 'grid') {
+                grid.innerHTML = filteredProducts.map(product => `
+                    <div class="product-item fade-in" onclick="openProductModal(${product.id})">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                    </div>
+                `).join('');
+            } else {
+                grid.innerHTML = filteredProducts.map(product => `
+                    <div class="product-item fade-in">
+                        <img src="${product.image}" alt="${product.name}" class="product-image" onclick="openProductModal(${product.id})">
+                        <div class="product-content">
+                            <div class="product-brand">${product.brand}</div>
+                            <div class="product-title">${product.name}</div>
+                            <div class="product-price">
+                                $${product.price.toLocaleString()}
+                                ${product.originalPrice ? `<span class="original">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                            <div class="product-actions">
+                                <div class="product-icons">
+                                    <button class="product-icon ${wishlist.includes(product.id) ? 'liked' : ''}" 
+                                            onclick="toggleWishlist(${product.id})">♡</button>
+                                    <button class="product-icon" onclick="shareProduct(${product.id})">⤴</button>
+                                    <button class="product-icon" onclick="bookmarkProduct(${product.id})">⚑</button>
+                                </div>
+                                <button class="shop-now-btn" onclick="buyProduct(${product.id})">Shop Now →</button>
+                            </div>
+                            <div class="product-description">${product.description}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // View switching
+        function switchView(view) {
+            currentView = view;
+            const grid = document.getElementById('productsGrid');
+            const gridBtn = document.getElementById('gridViewBtn');
+            const listBtn = document.getElementById('listViewBtn');
+            
+            if (view === 'grid') {
+                grid.className = 'products-grid grid-view';
+                gridBtn.classList.add('active');
+                listBtn.classList.remove('active');
+            } else {
+                grid.className = 'products-grid list-view';
+                listBtn.classList.add('active');
+                gridBtn.classList.remove('active');
+            }
+            
+            renderProducts();
+        }
+
+        // Product Modal
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const modal = document.getElementById('productModal');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <div class="modal-product-info">
+                    <div class="modal-images">
+                        <img src="${product.image}" alt="${product.name}" class="modal-image">
+                    </div>
+                    <div class="modal-details">
+                        <div class="modal-brand">${product.brand}</div>
+                        <h3>${product.name}</h3>
+                        <div class="modal-price">
+                            $${product.price.toLocaleString()}
+                            ${product.originalPrice ? `<span class="original">$${product.originalPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                        <p class="modal-description">${product.description}</p>
+                        <div class="modal-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="buy-now-btn" onclick="buyProduct(${product.id})">Buy Now</button>
+                            <button class="wishlist-btn ${wishlist.includes(product.id) ? 'liked' : ''}" 
+                                    onclick="toggleWishlist(${product.id})">♡</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Wishlist
+        function toggleWishlist(productId) {
+            if (wishlist.includes(productId)) {
+                wishlist = wishlist.filter(id => id !== productId);
+            } else {
+                wishlist.push(productId);
+            }
+            
+            localStorage.setItem('saunagram-wishlist', JSON.stringify(wishlist));
+            renderProducts();
+            
+            // Update modal if open
+            const modal = document.getElementById('productModal');
+            if (modal.classList.contains('active')) {
+                const wishlistBtn = modal.querySelector('.wishlist-btn');
+                if (wishlistBtn) {
+                    wishlistBtn.classList.toggle('liked', wishlist.includes(productId));
+                }
+            }
+        }
+
+        function showWishlist() {
+            const wishlistProducts = products.filter(p => wishlist.includes(p.id));
+            filteredProducts = wishlistProducts;
+            currentCategory = 'wishlist';
+            renderProducts();
+            renderCategories();
+        }
+
+        // Search
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', debounce(filterProducts, 300));
+        }
+
+        function focusSearch() {
+            document.getElementById('searchInput').focus();
+        }
+
+        // Utility functions
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        function scrollToProducts() {
+            document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateBottomNav() {
+            const navItems = document.querySelectorAll('.bottom-nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            if (currentCategory === 'all') {
+                navItems[0].classList.add('active');
+            }
+        }
+
+        function shareProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (navigator.share && product) {
+                navigator.share({
+                    title: product.name,
+                    text: product.description,
+                    url: window.location.href
+                });
+            }
+        }
+
+        function bookmarkProduct(productId) {
+            // Could implement actual bookmarking functionality
+            console.log('Bookmark product:', productId);
+        }
+
+        function buyProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                // In a real implementation, this would redirect to checkout or affiliate link
+                window.open(product.affiliateUrl, '_blank');
+            }
+        }
+
+        function showCategories() {
+            // Mobile category selector could be implemented here
+            console.log('Show categories');
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
